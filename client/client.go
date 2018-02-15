@@ -23,11 +23,7 @@ func main() {
 	}
 
 	client.Registre()
-	// err = client.Call("ChatServer.List", args, &reply2)
-	// if err != nil {
-	// 	log.Fatalln("Error: ", err)
-	// }
-	// fmt.Printf("%v\nlist: %v\n", reply, reply2)
+	
 }
 
 func newClient() (*Chatclient, error) {
