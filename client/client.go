@@ -4,7 +4,6 @@ import (
 	"flag"
 	"log"
 	"net/rpc"
-	"os"
 )
 
 type Chatclient struct {
@@ -17,13 +16,13 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	if len(os.Args) < 3 {
-		log.Fatalln("Usage go run client.go <name> <message>")
-		os.Exit(1)
-	}
 
 	client.Registre()
-	
+	// err = client.Call("ChatServer.List", args, &reply2)
+	// if err != nil {
+	// 	log.Fatalln("Error: ", err)
+	// }
+	// fmt.Printf("%v\nlist: %v\n", reply, reply2)
 }
 
 func newClient() (*Chatclient, error) {
