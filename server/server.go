@@ -51,9 +51,9 @@ func RunServer(c *ChatServer) {
 	rpc.Register(c)
 	rpc.HandleHTTP()
 
-	log.Printf("Listening on port :1234...\n")
+	log.Printf("Listening on port :8080...\n")
 
-	l, err := net.Listen("tcp", ":1234")
+	l, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatalln("error:", err)
 	}
@@ -73,7 +73,7 @@ func (c *ChatServer) Tell(msg Message, reply *N) error {
 		m := msg.User + " tells you " + msg.Msg
 		c.msg[msg.Target] = append(q, m)
 	} else {
-		m := msg.Target + " does not exist"
+		m := msg.Target + " not found"
 		c.msg[msg.User] = append(q, m)
 	}
 	log.Println(msg.User + " said " + msg.Target + " '" + msg.Msg + "'")

@@ -66,7 +66,7 @@ func (c *Chatclient) getConn() *rpc.Client {
 	var err error
 
 	if c.Client == nil {
-		c.Client, err = rpc.DialHTTP("tcp", ":1234")
+		c.Client, err = rpc.DialHTTP("tcp", ":8080")
 		if err != nil {
 			log.Panicf("unable to make connection: %q", err)
 		}
